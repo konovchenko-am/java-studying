@@ -1,0 +1,678 @@
+{
+	"info": {
+		"_postman_id": "0a66be0d-0a46-42b9-a9ab-5e136ed1a485",
+		"name": "final_work",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27178347"
+	},
+	"item": [
+		{
+			"name": "/registration as guest (no authentication required)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"guest\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/registration",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/authentication as user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"user\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/authentication as guest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"guest\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/authentication as admin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"admin\",\r\n    \"password\": \"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/users (read list of users, under admin only)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/goods (creating goods, auth admin/user required)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Пила электричечская, циркулярная\",\r\n    \"info\": \"По дереву\",\r\n    \"price\": 6950\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/goods",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"goods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/goods (read all goods, auth admin/user required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/goods",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"goods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/goods/category/{id} (read all goods of signed category, auth admin/user required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/goods/category/13",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"goods",
+						"category",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/goods/{id} (update price, auth admin/user required)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": \"9999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/goods/price/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"goods",
+						"price",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories/add_category (adding category, auth admin required)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Столярные инструменты\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/categories/add_category",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"add_category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories (getting categories by id, auth admin required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Столярные инструменты\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/categories",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories/add_good/{goodId} (adding good to category by id, auth admin required) Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"categoryId\": \"13\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/categories/add_good/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"add_good",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/stock/add/{goodId} (adding good to stock, auth admin required)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"goodAmount\": \"56\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/stock/add/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stock",
+						"add",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/stock (getting all goods from stock sorted by category, auth admin required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/stock",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/stock/category/{id} (getting all goods at the stock of signed category, auth admin required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/stock/category/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stock",
+						"category",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/shipping/add/{goodId} (adding good to shipment, auth admin required) Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"goodAmount\": \"1\",\r\n    \"login\":\"guest\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/shipping/add/11",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipping",
+						"add",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/shipping (getting all shipments, auth admin required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/shipping",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/shipping/{shipmentId} (getting all shipped goods by shipmentId, auth admin required)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY4NTczOTg3OSwiaWF0IjoxNjg1NjE5ODc5LCJhdXRob3JpdGllcyI6IlJPTEVfQURNSU4ifQ.iNuWcZJ5kGeM25Hre1SDubASJW1NKbEieuSnPaYJLPk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/shipping/27",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"shipping",
+						"27"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
